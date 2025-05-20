@@ -1,0 +1,16 @@
+{
+  "attributes": {
+    "formations_achetees": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::formation.formation",
+      "inversedBy": "acheteurs"
+    },
+    "progressions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::progression.progression",
+      "mappedBy": "utilisateur"
+    }
+  }
+}

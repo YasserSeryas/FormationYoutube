@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "videos",
+  "info": {
+    "singularName": "video",
+    "pluralName": "videos",
+    "displayName": "Video",
+    "description": "Videos des modules de formation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "titre": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "duree": {
+      "type": "integer" 
+    },
+    "ordre": {
+      "type": "integer",
+      "required": true
+    },
+    "video_id": {
+      "type": "string",
+      "required": true
+    },
+    "module": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::module.module",
+      "inversedBy": "videos"
+    }
+  }
+}

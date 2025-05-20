@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "progressions",
+  "info": {
+    "singularName": "progression",
+    "pluralName": "progressions",
+    "displayName": "Progression",
+    "description": "Suivi de la progression de l'utilisateur sur les vidéos"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "utilisateur": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "progressions"
+    },
+    "video": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::video.video"
+    },
+    "pourcentage_visionne": {
+      "type": "integer",
+      "default": 0,
+      "min": 0,
+      "max": 100
+    },
+    "completee": {
+      "type": "boolean",
+      "default": false
+    },
+    "derniere_position": {
+      "type": "integer",
+      "default": 0
+    },
+    "date_derniere_vue": {
+      "type": "datetime"
+    }
+  }
+}

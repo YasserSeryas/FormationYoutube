@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "formations",
+  "info": {
+    "singularName": "formation",
+    "pluralName": "formations",
+    "displayName": "Formation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "titre": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "miniature": {
+      "type": "media",
+      "allowedTypes": ["images"]
+    },
+    "prix": {
+      "type": "decimal",
+      "required": true
+    },
+    "modules": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::module.module",
+      "mappedBy": "formation"
+    },
+    "acheteurs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "formations_achetees"
+    },
+    "stripe_product_id": {
+      "type": "string"
+    }
+  }
+}
